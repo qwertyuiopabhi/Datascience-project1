@@ -67,7 +67,6 @@ class DataTransformation:
                 else:
                     input_feature_train_df[col] = input_feature_train_df[col]
                     input_feature_test_df[col] = input_feature_test_df[col]
-
             
             transformation_pipleine = DataTransformation.get_data_transformer_object()
             transformation_pipleine.fit(input_feature_train_df)
@@ -78,13 +77,11 @@ class DataTransformation:
             train_arr = np.c_[input_feature_train_arr, target_feature_train_arr ]
             test_arr = np.c_[input_feature_test_arr, target_feature_test_arr]
 
-
             utils.save_numpy_array_data(file_path=self.data_transformation_config.transformed_train_path,
                                         array=train_arr)
 
             utils.save_numpy_array_data(file_path=self.data_transformation_config.transformed_test_path,
                                         array=test_arr)
-
 
             utils.save_object(file_path=self.data_transformation_config.transform_object_path,
              obj=transformation_pipleine)
@@ -92,14 +89,11 @@ class DataTransformation:
             utils.save_object(file_path=self.data_transformation_config.target_encoder_path,
             obj=label_encoder)
 
-
-
             data_transformation_artifact = artifact_entity.DataTransformationArtifact(
                 transform_object_path=self.data_transformation_config.transform_object_path,
                 transformed_train_path = self.data_transformation_config.transformed_train_path,
                 transformed_test_path = self.data_transformation_config.transformed_test_path,
                 target_encoder_path = self.data_transformation_config.target_encoder_path
-
             )
 
             return data_transformation_artifact
