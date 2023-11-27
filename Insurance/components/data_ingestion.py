@@ -65,7 +65,3 @@ class DataIngestion:
 
         except Exception as e:
             raise InsuranceException(error_message=e, error_detail=sys)
-
-
-
-        
