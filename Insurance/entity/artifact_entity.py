@@ -19,4 +19,11 @@ class DataTransformationArtifact:
 
 @dataclass
 class ModelTrainerArtifact:
-    model_path: str    
+    model_path: str  
+    r2_train_score: float
+    r2_test_score: float
+    
+@dataclass
+class ModuleEvalutionArtifact:
+    is_model_accpeted: bool
+    improved_accuracy: float
